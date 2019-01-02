@@ -13,4 +13,5 @@ class CoursesController(LmsController):
         if isinstance(model,xdj.Model):
             course = self.get_course_by_id(model.params.course_id)
             model.course=course
+            model.outline = xdj.dobject(self.get_courseware_outline(model.request,model.params.course_id))
             return self.render(model)

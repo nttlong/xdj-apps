@@ -148,3 +148,11 @@ class LmsController(xdj.BaseController):
         :return:
         """
         return access_utils.is_course_open_for_learner(user,course)
+
+
+    def get_courseware_outline(self,request,course_id):
+        if type(course_id) in [str,unicode]:
+            import openedx.features.course_experience.utils as U
+            return U.get_course_outline_block_tree(request, course_id)
+        else:
+            raise Exception("'{0}' must be str or unicode".format("course_id"))
