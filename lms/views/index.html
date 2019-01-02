@@ -1,0 +1,17 @@
+<%inherit file="base.html"/>
+
+<ul class="list-group">
+    <li ng-repeat="p in course" class="list-group-item">
+        <a href="${appUrl}/course/{{p.course_id}}">
+            <img src="${absUrl}{{p.course_image_url}}" style="width:120px">
+        </a>
+
+
+    </li>
+</ul>
+<script>
+    function onInit(scope){
+        scope.course = ${toJson(courses)}
+        
+    }
+</script>
