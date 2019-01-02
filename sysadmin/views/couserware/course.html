@@ -1,0 +1,31 @@
+<div title="{{($root.$history.data().couser_id=='*')?'${_//"Thêm mới khóa học"}':'${_//"Sửa thông tin khóa học"}'}}" ng-init="$parent.doLoadItem()">
+    <form-layout>
+        <form-template>
+            <div>
+                <span>${_//"Tên"}</span><input type="text" ng-model="$parent.course.display_name" span="3"/>
+            </div>
+            <div>
+                <span>${_//"Tổ chức"}</span><input type="text" ng-model="$parent.course.org"/>
+                <span>${_//"Số"}</span><input type="text" ng-model="$parent.course.number"/>
+                <span>${_//"Run"}</span><input type="text" ng-model="$parent.course.run"/>
+            </div>
+            <div>
+                <div span="12">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group">
+
+                        </div>
+                        <div class="btn-group">
+
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" ng-click="$parent.doCreateCourse()">${_//"Tạo"}</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form-template>
+    </form-layout>
+</div>

@@ -1,0 +1,38 @@
+<div>
+    <h3 ng-if="$root.$history.data().course_id=='*'">${_//"Thêm mới khóa học"}</h3>
+    <h3 ng-if="$root.$history.data().course_id!='*'">${_//"Sửa thông tin khóa học"}:&nbsp;{{$root.$history.data().course_id}}</h3>
+    <hr>
+    <form-layout>
+        <form-template>
+            <div>
+                <span>${_//"Tên"}</span><input type="text" ng-model="course.display_name" span="3"/>
+            </div>
+            <div ng-if="$root.$history.data().course_id=='*'">
+                <span>${_//"Tổ chức"}</span><input type="text" ng-model="course.org"/>
+                <span>${_//"Số"}</span><input type="text" ng-model="course.number"/>
+                <span>${_//"Run"}</span><input type="text" ng-model="course.run"/>
+            </div>
+            <div>
+                <div span="12">
+                    <div class="btn-toolbar pull-right" role="toolbar">
+                        <div class="btn-group">
+
+                        </div>
+                        <div class="btn-group">
+
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" ng-click="doCreateCourse()" ng-if="$root.$history.data().course_id=='*'">${_//"Tạo"}</button>
+                            <button type="button" class="btn btn-default" ng-click="doUpdateCourse()" ng-if="$root.$history.data().course_id!='*'">${_//"Cập nhật"}</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form-template>
+    </form-layout>
+    <ajax url="${currentUrl}">
+        <call data-id="doLoadItem" data-params="{course_id:$root.$history.data().course_id}" ng-model="course"/>
+    </ajax>
+</div>
